@@ -18,10 +18,28 @@ class SLinkedList:
     def removeAthead(self):
         newNode = self.head.next 
         self.head = newNode
-
+    
+    def length(self): 
+        currNode = self.head 
+        count = 0 
+        while currNode != None :
+            count +=1 
+            currNode  = currNode.next 
+        return count 
+    def getMiddleNode(self):
+        slow = fast = self.head 
+        while fast and fast.next:
+            slow = slow.next 
+            fast  = fast.next.next 
+        currNode = slow  
+        arr = []
+        while currNode != None: 
+            arr.append(str(currNode.value))
+            currNode = currNode.next 
+        return "->".join(arr)
 
     def __repr__(self):
-        currNode = self.head 
+        currNode = self.head  
         arr = []
         while currNode != None: 
             arr.append(str(currNode.value))
@@ -36,6 +54,10 @@ class SLinkedList:
 sLinkedList = SLinkedList(10)
 sLinkedList.append(1)
 sLinkedList.addAtHead(2)
+sLinkedList.addAtHead(2)
+sLinkedList.addAtHead(2)
+
 sLinkedList.removeAthead()
-print(sLinkedList)
+print(sLinkedList.getMiddleNode())
+print( sLinkedList)
     
