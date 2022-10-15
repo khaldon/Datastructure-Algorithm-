@@ -30,10 +30,21 @@ class SLinkedList:
                 return 
             currNode = currNode.next 
             temp = temp.next 
-         
 
-
-
+    def reverse(self):
+        prev = None 
+        arr = []
+        while self.head : 
+            currNode = self.head 
+            self.head = self.head.next 
+            currNode.next = prev 
+            prev = currNode
+        currNode = prev
+        while currNode != None: 
+            arr.append(str(currNode.value))
+            currNode = currNode.next 
+        return "->".join(arr)
+        
     
     def length(self): 
         currNode = self.head 
@@ -77,5 +88,6 @@ sLinkedList.addAtHead(2)
 sLinkedList.removeAthead()
 sLinkedList.remove(1)
 # print(sLinkedList.getMiddleNode())
-print( sLinkedList)
+# print(sLinkedList.reverse())
+print(sLinkedList)
     
