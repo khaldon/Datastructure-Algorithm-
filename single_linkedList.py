@@ -9,6 +9,17 @@ class SLinkedList:
         self.tail = self.head 
     
 
+    def addAtHead(self, value):
+        newNode = Node(value)
+        currNode = self.head 
+        newNode.next = currNode
+        self.head = newNode 
+
+    def removeAthead(self):
+        newNode = self.head.next 
+        self.head = newNode
+
+
     def __repr__(self):
         currNode = self.head 
         arr = []
@@ -24,5 +35,7 @@ class SLinkedList:
 
 sLinkedList = SLinkedList(10)
 sLinkedList.append(1)
+sLinkedList.addAtHead(2)
+sLinkedList.removeAthead()
 print(sLinkedList)
     
