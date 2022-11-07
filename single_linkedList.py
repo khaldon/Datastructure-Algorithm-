@@ -89,6 +89,20 @@ class SLinkedList:
             count += 1
             curr_node = curr_node.next
 
+    def remove_repeated_element(self):
+        hashmap = {}
+        dummy  = Node(1)
+        dummy.next  = self.head 
+        curr = dummy.next 
+        prev = dummy 
+        while curr: 
+            if curr.data in hashmap:
+                prev.next = curr.next 
+            else:
+                hashmap[curr.data] = curr.data
+                prev = prev.next 
+            curr = curr.next
+
 
 sLinkedList = SLinkedList(10)
 sLinkedList.append(1)
